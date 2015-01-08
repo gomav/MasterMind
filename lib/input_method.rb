@@ -2,16 +2,14 @@ class InputMethod
 
   attr_reader :input
 
-  # def initialize(input) - "not sure why this did not work"
-  #   @input = input
-
-
   def initialize
-    @input = ""#player input
+    @input = ""
   end
 
   def get
-    @input = gets.downcase.strip
+    @input = STDIN.gets.downcase.strip
   end
-
 end
+
+
+### needed to add STDIN for Rake Test to work ###

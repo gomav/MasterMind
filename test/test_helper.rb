@@ -4,3 +4,4 @@ $LOAD_PATH.unshift(lib_dir)
 require 'minitest'
 require 'minitest/autorun'
 require 'minitest/pride'
+require 'colorize'

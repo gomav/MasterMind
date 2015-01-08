@@ -1,26 +1,26 @@
-gem 'minitest'
-require 'minitest/autorun'
-require 'minitest/pride'
+# require 'test_helper'
 require_relative '../lib/code_maker'
 
 class CodeMakerTest < Minitest::Test
-  def test_it_has_colors
+
+  def test_new_code_has_four_elements
     code_maker = CodeMaker.new
-    assert_equal %w(r b g y), code_maker.colors
+    assert_equal 4, code_maker.code.length
   end
 
-  def test_it_has_a_default_code
-    code_maker = CodeMaker.new("gggy")
-    assert_equal "gggy", code_maker.code
+  def test_new_code_has_red_blue_green_yellow
+    code_maker = CodeMaker.new
+    code_maker.code.chars.each do |color|
+      assert %W(r g b y).include? color
+    end
   end
 
-  def test_it_has_a_code_generator
-    code_maker = CodeMaker.new
-    assert_respond_to code_maker, :code_generator
-  end
-
-  def test_it_can_generate_a_code
-    code_maker = CodeMaker.new
-    assert code_maker.code, "r"
+  def test_it_makes__random_codes
+    code_maker1 = CodeMaker.new
+    code_maker2 = CodeMaker.new
+    code_maker3 = CodeMaker.new
+    refute code_maker1.code == code_maker2.code &&
+           code_maker1.code == code_maker3.code &&
+           code_maker2.code == code_maker3.code
   end
 end
